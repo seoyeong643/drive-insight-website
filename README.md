@@ -30,7 +30,9 @@ http://localhost:3000
 
 ## Contribution
 
-1. Create a new branch
+1. If you have already created a branch, it's a good habit to "Sync Fork".
+
+2. Create a new branch
 
 ```bash
 git checkout -b <branch_name>
