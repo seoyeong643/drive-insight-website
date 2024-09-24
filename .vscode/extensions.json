@@ -1,0 +1,12 @@
+{
+    "recommendations": [
+        "dbaeumer.vscode-eslint",
+        "aaron-bond.better-comments",
+        "dsznajder.es7-react-js-snippets",
+        "esbenp.prettier-vscode",
+        "bradlc.vscode-tailwindcss",
+        "cschlosser.doxdocgen",
+        "visualstudioexptteam.vscodeintellicode",
+        "ms-vscode.vscode-typescript-next"
+    ]
+}
