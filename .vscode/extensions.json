@@ -7,6 +7,7 @@
         "bradlc.vscode-tailwindcss",
         "cschlosser.doxdocgen",
         "visualstudioexptteam.vscodeintellicode",
-        "ms-vscode.vscode-typescript-next"
+        "ms-vscode.vscode-typescript-next",
+        "kamikillerto.vscode-colorize"
     ]
 }
