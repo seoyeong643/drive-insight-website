@@ -1,16 +1,24 @@
-import Link from "next/link";
+import { BenefitsSection } from "@/components/BenefitsSection";
+import { CallToActionSection } from "@/components/CallToActionSection";
+import { FAQSection } from "@/components/FAQSection";
+import { FeaturesSection } from "@/components/FeaturesSection";
+import { Footer } from "@/components/Footer";
+import { HeroSection } from "@/components/HeroSection";
+import { Navbar } from "@/components/Navbar";
 
 export default function Home() {
     return (
         <div>
-            <h1 className="text-4xl font-bold">Drive Insight</h1>
-            <div className="flex flex-row gap-4 text-secondary">
-                <Link href="/about">About</Link>
-                <Link href="/faq">FAQ</Link>
-                <Link href="/guides">Guides</Link>
-                <Link href="/support">Support</Link>
-                <Link href="/store">Store</Link>
-            </div>
+            <Navbar />
+
+            {/* PAGE SECTIONS */}
+            <HeroSection />
+            <BenefitsSection />
+            <FeaturesSection />
+            <FAQSection />
+            <CallToActionSection />
+
+            <Footer />
         </div>
     );
 }
