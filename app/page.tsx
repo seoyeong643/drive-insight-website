@@ -1,5 +1,6 @@
 import { BenefitsSection } from "@/components/BenefitsSection";
 import { CallToActionSection } from "@/components/CallToActionSection";
+import { CompatibilitySection } from "@/components/CompatibilitySection";
 import { FAQSection } from "@/components/FAQSection";
 import { FeaturesSection } from "@/components/FeaturesSection";
 import { Footer } from "@/components/Footer";
@@ -15,6 +16,7 @@ export default function Home() {
             <HeroSection />
             <BenefitsSection />
             <FeaturesSection />
+            <CompatibilitySection />
             <FAQSection />
             <CallToActionSection />
 
