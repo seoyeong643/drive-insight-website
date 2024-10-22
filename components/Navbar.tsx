@@ -4,21 +4,20 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 import { FaBars, FaCartShopping, FaXmark } from "react-icons/fa6";
+import logo from "../public/DIS_Logo_Dark.png";
 import { Button } from "./ui/button";
+import { Card, CardContent } from "./ui/card";
 
 export const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
 
     return (
-        <nav className="flex flex-col justify-between border-b px-6 py-2 md:flex-row md:px-12">
+        <nav className="mx-auto flex flex-col justify-between px-6 py-2 md:container md:flex-row">
             <div className="flex flex-row items-center justify-between">
                 {/* LOGO */}
-                <Image
-                    src="/DIS_Logo_Dark.png"
-                    alt="Drive Insight Logo"
-                    width={140}
-                    height={63}
-                />
+                <Link href={"/"}>
+                    <Image src={logo} alt="Drive Insight Logo" width={140} />
+                </Link>
 
                 {/* HAMBURGER MENU */}
                 <Button
@@ -32,9 +31,11 @@ export const Navbar = () => {
 
             {/* MOBILE LINKS */}
             {isOpen && (
-                <div className="py-3 md:hidden">
-                    <NavLinks />
-                </div>
+                <Card className="mt-3 md:hidden">
+                    <CardContent className="pt-4">
+                        <NavLinks />
+                    </CardContent>
+                </Card>
             )}
 
             {/* DESKTOP LINKS */}
@@ -52,12 +53,12 @@ const NavLinks = () => {
             <Link href="/faq">FAQ</Link>
             <Link href="/guides">Guides</Link>
             <Link href="/support">Support</Link>
-            <Button className="w-fit" asChild>
-                <Link href="/store">
+            <Link href="/store">
+                <Button className="w-fit">
                     <FaCartShopping className="mr-2" />
                     Buy Now
-                </Link>
-            </Button>
+                </Button>
+            </Link>
         </div>
     );
 };
