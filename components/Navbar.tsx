@@ -10,7 +10,7 @@ export const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
 
     return (
-        <nav className="flex flex-col justify-between border-b px-6 py-2 md:flex-row">
+        <nav className="flex flex-col justify-between border-b px-6 py-2 md:flex-row md:px-12">
             <div className="flex flex-row items-center justify-between">
                 {/* LOGO */}
                 <Image
