@@ -46,7 +46,7 @@
         @apply border-border;
     }
     body {
-        @apply bg-background text-foreground;
+        @apply flex h-screen flex-col justify-between gap-6 bg-background text-foreground;
     }
 
     /* TEXT STYLES */
@@ -74,5 +74,9 @@
 
     ul {
         @apply my-6 ml-6 list-disc [&>li]:mt-2;
+    }
+
+    a {
+        @apply text-slate-400 underline-offset-4 hover:underline;
     }
 }

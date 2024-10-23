@@ -15,7 +15,7 @@ import obd from "../../public/obd.svg";
 
 export default function Install() {
     return (
-        <div className="container mx-auto flex flex-col gap-5 p-4 md:py-10">
+        <div className="container mx-auto flex flex-col gap-5 px-4">
             {/* HEADER */}
             <div className="flex flex-col gap-2">
                 <h1 className="text-center">Welcome to the Drive Insight</h1>
