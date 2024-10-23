@@ -12,7 +12,7 @@ export const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
 
     return (
-        <nav className="mx-auto flex flex-col justify-between px-6 py-2 md:container md:flex-row">
+        <nav className="container mx-auto flex flex-col justify-between px-6 py-2 md:flex-row">
             <div className="flex flex-row items-center justify-between">
                 {/* LOGO */}
                 <Link href={"/"}>
@@ -48,7 +48,7 @@ export const Navbar = () => {
 
 const NavLinks = () => {
     return (
-        <div className="flex flex-col gap-2 font-semibold text-slate-400 md:flex-row md:items-center md:gap-4">
+        <div className="flex flex-col gap-2 font-semibold md:flex-row md:items-center md:gap-4">
             <Link href="/about">About</Link>
             <Link href="/faq">FAQ</Link>
             <Link href="/guides">Guides</Link>
