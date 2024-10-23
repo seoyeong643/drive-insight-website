@@ -19,8 +19,12 @@ export function DropdownMenuRadioGroupDemo({title, items}: {title: string, items
 	return (
 		<DropdownMenu>
 		<DropdownMenuTrigger asChild>
-			<Button variant="outline">{selectedItem ? `${title}: ${selectedItem}` : title}</Button>
+			<div>
+				<div className="text-sm text-gray-500">{selectedItem ? title : ''}</div> {/* Title above button */}
+				<Button variant="outline">{selectedItem || `${title}`}</Button> {/* Show selected item or default title */}
+			</div>
 		</DropdownMenuTrigger>
+
 		<DropdownMenuContent className="w-56">
 			<DropdownMenuLabel>{title}</DropdownMenuLabel>
 			<DropdownMenuSeparator />

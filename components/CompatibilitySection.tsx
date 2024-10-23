@@ -13,11 +13,24 @@ export const CompatibilitySection = () => {
     return (
         <div>
             <h1>CompatibilitySection</h1>
-            <DropdownMenuRadioGroupDemo title="Year" items={yearItems.map(String)}/>
-            <DropdownMenuRadioGroupDemo title="Make" items={makeItems.map(String)}/>
-            <DropdownMenuRadioGroupDemo title="Model" items={modelItems.map(String)}/>
-            <DropdownMenuRadioGroupDemo title="Type" items={typeItems.map(String)}/>
-            <ButtonDemo title="Check"/>
+            Check here if your car is compatible with our device.
+            <div className="relative flex flex-row justify-center gap-4 w-full mt-4">
+                <div className="flex flex-col justify-end">
+                    <DropdownMenuRadioGroupDemo title="Year" items={yearItems.map(String)} />
+                </div>
+                <div className="flex flex-col justify-end">
+                    <DropdownMenuRadioGroupDemo title="Make" items={makeItems.map(String)} />
+                </div>
+                <div className="flex flex-col justify-end">
+                    <DropdownMenuRadioGroupDemo title="Model" items={modelItems.map(String)} />
+                </div>
+                <div className="flex flex-col justify-end">
+                    <DropdownMenuRadioGroupDemo title="Type" items={typeItems.map(String)} />
+                </div>
+                <div className="flex flex-col justify-end">
+                    <ButtonDemo title="Check" />
+                </div>
+            </div>
         </div>
     );
 };
