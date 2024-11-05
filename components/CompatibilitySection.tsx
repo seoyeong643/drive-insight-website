@@ -14,21 +14,25 @@ export const CompatibilitySection = () => {
         <div>
             <h1>CompatibilitySection</h1>
             Check here if your car is compatible with our device.
-            <div className="relative flex flex-row justify-center gap-4 w-full mt-4">
-                <div className="flex flex-col justify-end">
+            <div className="relative flex flex-col items-center md:flex-row justify-center gap-4 w-full mt-4 px-6">
+                {/* <DropdownMenuRadioGroupDemo title="Year" items={yearItems.map(String)} />
+                <DropdownMenuRadioGroupDemo title="Make" items={makeItems.map(String)} />
+                <DropdownMenuRadioGroupDemo title="Model" items={modelItems.map(String)} />
+                <DropdownMenuRadioGroupDemo title="Type" items={typeItems.map(String)} /> */}
+                <div className="flex flex-col justify-end w-full md:w-auto">
                     <DropdownMenuRadioGroupDemo title="Year" items={yearItems.map(String)} />
                 </div>
-                <div className="flex flex-col justify-end">
+                <div className="flex flex-col justify-end w-full md:w-auto">
                     <DropdownMenuRadioGroupDemo title="Make" items={makeItems.map(String)} />
                 </div>
-                <div className="flex flex-col justify-end">
+                <div className="flex flex-col justify-end w-full md:w-auto">
                     <DropdownMenuRadioGroupDemo title="Model" items={modelItems.map(String)} />
                 </div>
-                <div className="flex flex-col justify-end">
+                <div className="flex flex-col justify-end w-full md:w-auto">
                     <DropdownMenuRadioGroupDemo title="Type" items={typeItems.map(String)} />
                 </div>
-                <div className="flex flex-col justify-end">
-                    <ButtonDemo title="Check" />
+                <div className="flex flex-col justify-end w-full md:w-auto">
+                    <ButtonDemo title="Check"/>
                 </div>
             </div>
         </div>
