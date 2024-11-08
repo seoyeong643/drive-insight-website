@@ -1,15 +1,15 @@
-import ButtonDemo from "./Button";
-import DropdownMenuRadioGroupDemo from "./DropDownMenu";
+import Picker from "@/components/Picker";
+import { getYears } from "@/utils/compatibility";
+import { Button } from "./ui/button";
+import { useState } from "react";
 
-const yearItems : number[] = [];
-for (let year = 2023; year >= 2015; year--) {
-    yearItems.push(year);
-}
 const makeItems = ["Toyota", "Honda", "Ford", "Chevrolet", "Nissan", "BMW", "Mercedes-Benz", "Volkswagen", "Audi", "Hyundai"];
 const modelItems = ["Camry", "Civic", "Mustang", "Silverado", "Altima", "3 Series", "C-Class", "Golf", "A4", "Elantra"];
 const typeItems = ["Sedan", "SUV", "Truck", "Coupe", "Hatchback", "Convertible", "Minivan", "Crossover", "Wagon", "Electric"];
 
 export const CompatibilitySection = () => {
+    const [year, setYear] = useState<string>("");
+
     return (
         <div>
             <h1>CompatibilitySection</h1>
@@ -20,19 +20,19 @@ export const CompatibilitySection = () => {
                 <DropdownMenuRadioGroupDemo title="Model" items={modelItems.map(String)} />
                 <DropdownMenuRadioGroupDemo title="Type" items={typeItems.map(String)} /> */}
                 <div className="flex flex-col justify-end w-full md:w-auto">
-                    <DropdownMenuRadioGroupDemo title="Year" items={yearItems.map(String)} />
+                    <Picker title="Year" items={getYears()} />
                 </div>
                 <div className="flex flex-col justify-end w-full md:w-auto">
-                    <DropdownMenuRadioGroupDemo title="Make" items={makeItems.map(String)} />
+                    <Picker title="Make" items={makeItems.map(String)} />
                 </div>
                 <div className="flex flex-col justify-end w-full md:w-auto">
-                    <DropdownMenuRadioGroupDemo title="Model" items={modelItems.map(String)} />
+                    <Picker title="Model" items={modelItems.map(String)} />
                 </div>
                 <div className="flex flex-col justify-end w-full md:w-auto">
-                    <DropdownMenuRadioGroupDemo title="Type" items={typeItems.map(String)} />
+                    <Picker title="Type" items={typeItems.map(String)} />
                 </div>
                 <div className="flex flex-col justify-end w-full md:w-auto">
-                    <ButtonDemo title="Check"/>
+                    <Button>Check Compatibility</Button>
                 </div>
             </div>
         </div>
