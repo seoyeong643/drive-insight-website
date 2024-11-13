@@ -1,6 +1,5 @@
 "use client"
 
-import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import {
 	DropdownMenu,
@@ -11,8 +10,9 @@ import {
 	DropdownMenuSeparator,
 	DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import { useState } from "react";
 
-export function Picker({title, items, onChange}: {title: string, items: string[], onChage: ({ item }: {item: string }) => {}}) {
+export function Picker({title, items}: {title: string, items: string[]}) {
 	const [selectedItem, setSelectedItem] = useState<string | undefined>(undefined);
 
 	return (
@@ -24,7 +24,7 @@ export function Picker({title, items, onChange}: {title: string, items: string[]
 			<DropdownMenuContent className="w-56">
 				<DropdownMenuLabel>{title}</DropdownMenuLabel>
 				<DropdownMenuSeparator />
-				<DropdownMenuRadioGroup value={selectedItem} onValueChange={(value) => onChange(value)}>
+				<DropdownMenuRadioGroup value={selectedItem}>
 				{items.map((item) => (
 					<DropdownMenuRadioItem key={item} value={item}>
 					{item}
