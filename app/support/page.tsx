@@ -1,5 +1,17 @@
+"use client"
+
+import { ContactFormData, contactSchema } from "@/schema/contactSchema";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useForm } from "react-hook-form";
 
 export default function Contact() {
+    const form = useForm<ContactFormData>({
+        resolver: zodResolver(contactSchema)
+    })
+    function onSubmit(values: ContactFormData) {
+        console.log(values)
+    }
+
     return (
         <div className="container mx-auto p-4">
             <h1 className="text-4xl font-bold">Contact our team</h1>
@@ -16,43 +28,43 @@ export default function Contact() {
             <div className="flex flex-col md:flex-row gap-8">
                 {/* Contact Form */}
                 <div className="flex-1 bg-card p-6 rounded-lg shadow-md text-card-foreground">
-                <form className="space-y-4">
-                    {/* Frst and last name */}
+
+                <form className="space-y-4" onSubmit={form.handleSubmit(onSubmit)} >
                     <div className="flex gap-4">
-                    <input
-                        type="text"
+                    <input type="text"
                         placeholder="First name"
+                        {...form.register("firstName")}
                         className="w-full p-2 border rounded-md bg-input text-slate-100 placeholder-slate-500"
                     />
-                    <input
-                        type="text"
+                    <input type="text"
                         placeholder="Last name"
+                        {...form.register("lastName")}
                         className="w-full p-2 border rounded-md bg-input text-slate-100 placeholder-slate-500"
                     />
                     </div>
 
-                    <input
-                    type="email"
+                    <input type="email"
                     placeholder="Email"
+                    {...form.register("email")}
                     className="w-full p-2 border rounded-md bg-input text-slate-100 placeholder-slate-500"
                     />
 
                     <div className="flex gap-4">
-                    <select className="p-2 border rounded-md bg-input text-slate-100">
-                        <option value="US">US</option>
+                    <select className="p-2 border rounded-md bg-input text-slate-100" defaultValue={"US"} {...form.register("countryCode")}>
+                        <option value="US" defaultChecked>US</option>
                         <option value="CA">CA</option>
                         <option value="UK">UK</option>
                         {/* Add more countries as needed */}
                     </select>
-                    <input
-                        type="text"
+                    <input type="text"
                         placeholder="+1 (555) 000-0000"
+                        {...form.register("phoneNumber")}
                         className="w-full p-2 border rounded-md bg-input text-slate-100 placeholder-slate-500"
                     />
                     </div>
 
-                    <textarea
-                    placeholder="Leave us a message..."
+                    <textarea placeholder="Leave us a message..."
+                    {...form.register("message")}
                     className="w-full p-2 border rounded-md bg-input text-slate-100 placeholder-slate-500"
                     rows={4}
                     />
@@ -76,8 +88,7 @@ export default function Contact() {
                     </label>
                     </div>
 
-                    <button
-                    type="submit"
+                    <button type="submit"
                     className="w-full p-3 bg-primary text-primary-foreground rounded-md hover:bg-primary/90"
                     >
                     Send message
