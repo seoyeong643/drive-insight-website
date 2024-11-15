@@ -5,7 +5,6 @@ import {
     AccordionTrigger,
 } from "@/components/ui/accordion";
 import Link from "next/link";
-import React from 'react';
 
 export const FAQSection = () => {
     return (
@@ -13,36 +12,39 @@ export const FAQSection = () => {
             <h1 style={{ textAlign: "center", fontSize: 35 }}>FAQs</h1>
             <br />
 
-            <Accordion type="single" collapsible className="w-full flex flex-col gap-3">
+            <Accordion
+                type="single"
+                collapsible
+                className="flex w-full flex-col gap-3">
                 <AccordionItem value="item-1">
-                    <AccordionTrigger>Is it accessible?</AccordionTrigger>                   
+                    <AccordionTrigger>Is it accessible?</AccordionTrigger>
                     <AccordionContent>
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit,
                         sed do eiusmod tempor incididunt ut labore et dolore
                         magna aliqua. Ut enim ad minim veniam, quis nostrud
                         exercitation ullamco laboris nisi ut aliquip .
-                    </AccordionContent>                   
+                    </AccordionContent>
                 </AccordionItem>
                 <AccordionItem value="item-2">
-                    <AccordionTrigger>Is it accessible?</AccordionTrigger>                   
+                    <AccordionTrigger>Is it accessible?</AccordionTrigger>
                     <AccordionContent>
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit,
                         sed do eiusmod tempor incididunt ut labore et dolore
                         magna aliqua. Ut enim ad minim veniam, quis nostrud
                         exercitation ullamco laboris nisi ut aliquip .
-                    </AccordionContent>                   
+                    </AccordionContent>
                 </AccordionItem>
                 <AccordionItem value="item-3">
-                    <AccordionTrigger>Is it accessible?</AccordionTrigger>                   
+                    <AccordionTrigger>Is it accessible?</AccordionTrigger>
                     <AccordionContent>
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit,
                         sed do eiusmod tempor incididunt ut labore et dolore
                         magna aliqua. Ut enim ad minim veniam, quis nostrud
                         exercitation ullamco laboris nisi ut aliquip .
-                    </AccordionContent>                   
+                    </AccordionContent>
                 </AccordionItem>
             </Accordion>
-      
+
             <Link href="/faq">
                 <h6 style={{ textAlign: "right", color: "blue" }}>
                     Click here for more information
