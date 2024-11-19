@@ -10,6 +10,7 @@ import { Form, FormControl, FormField, FormItem, FormMessage } from "@/component
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { ContactFormData, contactSchema } from "@/schema/contactSchema";
+import { sendDiscordMessage } from "@/utils/discord";
 
 export default function Contact() {
     const form = useForm<ContactFormData>({
@@ -26,6 +27,8 @@ export default function Contact() {
     });
 
     const onSubmit = (values: ContactFormData) => {
+        const success = sendDiscordMessage(values);
+        // TODO: Show confirmation message on the website: "Thank you for your message! We will get back to you soon."
         console.log(values);
     };
 
