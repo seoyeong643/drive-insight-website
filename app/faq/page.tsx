@@ -1,3 +1,5 @@
+"use client";
+
 import {
     Accordion,
     AccordionContent,
@@ -5,10 +7,15 @@ import {
     AccordionTrigger,
 } from "@/components/ui/accordion";
 import { Button } from "@/components/ui/button";
-import { faq } from "@/constants/faq";
-import Link from "next/link";
+import { Category, faq } from "@/constants/faq";
+import { useState } from "react";
 
 export default function FAQ() {
+    // Keeps track of the selected category
+    const [selectedCategory, setSelectedCategory] = useState<Category>(
+        Category.ALL,
+    );
+
     return (
         <div className="flex flex-col items-center justify-center">
             <h1
@@ -23,9 +30,27 @@ export default function FAQ() {
                 device. For further information, check out our guide.
             </p>
 
-            <Button asChild>
-                <Link href="/support">Contact us</Link>
-            </Button>
+            <div className="flex flex-row gap-3">
+                {Object.values(Category).map((category) => {
+                    return (
+                        <Button
+                            key={category}
+                            onClick={() => setSelectedCategory(category)}
+                            className={
+                                category === selectedCategory
+                                    ? ""
+                                    : "border-2 border-primary"
+                            }
+                            variant={
+                                category === selectedCategory
+                                    ? "default"
+                                    : "outline"
+                            }>
+                            {category}
+                        </Button>
+                    );
+                })}
+            </div>
 
             <Accordion
                 type="single"
@@ -33,14 +58,20 @@ export default function FAQ() {
                 className="mx-auto flex w-5/6 flex-col gap-3">
                 {faq.map((item, index) => {
                     return (
-                        <AccordionItem
-                            value={index.toString()}
-                            key={index.toString()}>
-                            <AccordionTrigger>{item.title}</AccordionTrigger>
-                            <AccordionContent>
-                                {item.description}
-                            </AccordionContent>
-                        </AccordionItem>
+                        (item.category === selectedCategory ||
+                            selectedCategory === Category.ALL) && (
+                            <AccordionItem
+                                value={index.toString()}
+                                key={index.toString()}>
+                                <AccordionTrigger>
+                                    {item.title}
+                                </AccordionTrigger>
+                                <AccordionContent>
+                                    {item.description}
+                                    {item.category}
+                                </AccordionContent>
+                            </AccordionItem>
+                        )
                     );
                 })}
             </Accordion>
