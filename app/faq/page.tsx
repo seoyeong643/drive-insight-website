@@ -8,6 +8,7 @@ import {
 } from "@/components/ui/accordion";
 import { Button } from "@/components/ui/button";
 import { Category, faq } from "@/constants/faq";
+import Link from "next/link";
 import { useState } from "react";
 
 export default function FAQ() {
@@ -17,18 +18,14 @@ export default function FAQ() {
     );
 
     return (
-        <div className="flex flex-col items-center justify-center">
-            <h1
-                className="text-4xl font-bold"
-                style={{ textAlign: "center", fontSize: 35 }}>
-                Frequently Asked Questions
-            </h1>
-            <br />
-
-            <p style={{ textAlign: "center" }}>
-                Quick answers to questions you may have about our app and
-                device. For further information, check out our guide.
-            </p>
+        <div className="container mx-auto flex flex-col items-center justify-center gap-5">
+            <div className="flex flex-col items-center gap-2">
+                <h1>Frequently Asked Questions</h1>
+                <p>
+                    Quick answers to questions you may have about our app and
+                    device.
+                </p>
+            </div>
 
             <div className="flex flex-row gap-3">
                 {Object.values(Category).map((category) => {
@@ -55,7 +52,7 @@ export default function FAQ() {
             <Accordion
                 type="single"
                 collapsible
-                className="mx-auto flex w-5/6 flex-col gap-3">
+                className="mx-auto flex w-full flex-col gap-3 px-6">
                 {faq.map((item, index) => {
                     return (
                         (item.category === selectedCategory ||
@@ -75,6 +72,18 @@ export default function FAQ() {
                     );
                 })}
             </Accordion>
+
+            <div className="flex flex-col gap-3">
+                <p>For more information, check out our other resources.</p>
+                <div className="flex flex-row justify-center gap-3">
+                    <Button asChild>
+                        <Link href="/support">Contact Us</Link>
+                    </Button>
+                    <Button asChild>
+                        <Link href="/guide">Guide</Link>
+                    </Button>
+                </div>
+            </div>
         </div>
     );
 }
