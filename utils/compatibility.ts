@@ -5,35 +5,7 @@ import {
     VehicleRecord,
 } from "@/constants/Types";
 
-/**
- * Fetch data from a given URL
- * @param url - URL to fetch data from
- * @returns Data from the response as JSON
- */
-export const fetchData = async <T>(url: string): Promise<T | null> => {
-    try {
-        // Fetch the data with the given URL and header
-        const response: Response = await fetch(url, {
-            method: "GET",
-            headers: { Accept: "application/json" },
-        });
 
-        // Check if the response is not ok
-        if (!response.ok) {
-            console.error(
-                `Error fetching data: ${response.status} ${response.statusText}`,
-            );
-            return null;
-        }
-
-        // Return the response as JSON
-        return (await response.json()) as T;
-    } catch (error) {
-        // Log the error
-        console.error("Fetch error:", error);
-        return null;
-    }
-};
 
 /**
  * Get all years from 2008 to current year

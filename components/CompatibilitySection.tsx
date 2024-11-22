@@ -2,7 +2,6 @@
 
 import Picker from "@/components/Picker";
 import { getYears } from "@/utils/compatibility";
-import { useState } from "react";
 import { Button } from "./ui/button";
 
 const makeItems = [
@@ -43,7 +42,7 @@ const typeItems = [
 ];
 
 export const CompatibilitySection = () => {
-    const [year, setYear] = useState<string>("");
+    // const [year, setYear] = useState<string>("");
 
     return (
         <div>
