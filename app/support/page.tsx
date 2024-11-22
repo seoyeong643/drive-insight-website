@@ -118,7 +118,7 @@ export default function Contact() {
                                     control={form.control}
                                     name="phoneNumber"
                                     render={({ field }) => (
-                                        <FormItem>
+                                        <FormItem className="flex-1">
                                             <FormControl>
                                                 <Input placeholder="+1 (555) 000-0000" {...field} />
                                             </FormControl>
