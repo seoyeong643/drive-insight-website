@@ -3,7 +3,7 @@ import BenefitCard from "./BenefitCard";
 
 export const BenefitsSection = () => {
     return (
-        <div className="container mx-auto flex flex-col gap-5 px-6">
+        <div className="flex flex-col gap-5">
             <h2 className="text-center">Get more out of your drive</h2>
             <div className="flex flex-col items-center gap-4 md:flex-row md:gap-8">
                 <BenefitCard

@@ -52,7 +52,7 @@ export default function FAQ() {
             <Accordion
                 type="single"
                 collapsible
-                className="mx-auto flex w-full flex-col gap-3 px-6">
+                className="flex w-full flex-col gap-3">
                 {faq.map((item, index) => {
                     return (
                         (item.category === selectedCategory ||

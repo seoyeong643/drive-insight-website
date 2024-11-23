@@ -48,7 +48,7 @@ export const CompatibilitySection = () => {
         <div>
             <h1>CompatibilitySection</h1>
             Check here if your car is compatible with our device.
-            <div className="relative mt-4 flex w-full flex-col items-center justify-center gap-4 px-6 md:flex-row">
+            <div className="relative mt-4 flex w-full flex-col items-center justify-center gap-4 md:flex-row">
                 {/* <DropdownMenuRadioGroupDemo title="Year" items={yearItems.map(String)} />
                 <DropdownMenuRadioGroupDemo title="Make" items={makeItems.map(String)} />
                 <DropdownMenuRadioGroupDemo title="Model" items={modelItems.map(String)} />

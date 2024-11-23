@@ -12,7 +12,7 @@ export const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
 
     return (
-        <nav className="container mx-auto flex flex-col justify-between px-6 py-2 md:flex-row">
+        <nav className="container flex flex-col justify-between py-2 md:flex-row">
             <div className="flex flex-row items-center justify-between">
                 {/* LOGO */}
                 <Link href={"/"}>

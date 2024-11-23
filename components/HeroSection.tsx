@@ -5,7 +5,7 @@ import { Button } from "./ui/button";
 
 export const HeroSection = () => {
     return (
-        <div className="container mx-auto flex flex-col items-center justify-between px-6 md:flex-row-reverse">
+        <div className="flex flex-col items-center justify-between md:flex-row-reverse">
             {/* HERO IMAGE */}
             <Image
                 src="/drive-insight-hero-mockup.png"

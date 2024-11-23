@@ -6,7 +6,13 @@ import { useForm } from "react-hook-form";
 // import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
-import { Form, FormControl, FormField, FormItem, FormMessage } from "@/components/ui/form";
+import {
+    Form,
+    FormControl,
+    FormField,
+    FormItem,
+    FormMessage,
+} from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { ContactFormData, contactSchema } from "@/schema/contactSchema";
@@ -34,152 +40,163 @@ export default function Contact() {
     };
 
     return (
-        <div className="container mx-auto flex flex-col gap-5">
+        <div className="container flex flex-col gap-5">
             <div className="flex flex-col items-center gap-2">
                 <h1>Contact Us</h1>
-                <p>Most of the answers you're looking for may already be in our FAQ section. If you still need help, just fill out the form below, and we'll get back to you shortly.</p>
+                <p>
+                    Most of the answers you're looking for may already be in our
+                    FAQ section. If you still need help, just fill out the form
+                    below, and we'll get back to you shortly.
+                </p>
                 <div className="flex items-center justify-center gap-2">
-                    <Button 
-                        variant="default" 
-                        size="lg">
+                    <Button variant="default" size="lg">
                         FAQ
                     </Button>
-                    <Button 
-                        variant="default" 
-                        size="lg">
+                    <Button variant="default" size="lg">
                         Guides
                     </Button>
                 </div>
             </div>
 
-                {/* Contact Form */}
-                <div className="flex-1 p-6 rounded-lg shadow-md text-card-foreground">
-                    <Form {...form}>
-                        <form className="space-y-4" onSubmit={form.handleSubmit(onSubmit)}>
-                            <div className="flex gap-4">
-                                <FormField
-                                    control={form.control}
-                                    name="firstName"
-                                    render={({ field }) => (
-                                        <FormItem className="flex-1">
-                                            <FormControl>
-                                                <Input placeholder="First name" {...field} />
-                                            </FormControl>
-                                            <FormMessage />
-                                        </FormItem>
-                                    )}
-                                />
-                                <FormField
-                                    control={form.control}
-                                    name="lastName"
-                                    render={({ field }) => (
-                                        <FormItem className="flex-1">
-                                            <FormControl>
-                                                <Input placeholder="Last name" {...field} />
-                                            </FormControl>
-                                            <FormMessage />
-                                        </FormItem>
-                                    )}
-                                />
-                            </div>
-
+            {/* Contact Form */}
+            <div className="flex-1 rounded-lg text-card-foreground shadow-md">
+                <Form {...form}>
+                    <form
+                        className="space-y-4"
+                        onSubmit={form.handleSubmit(onSubmit)}>
+                        <div className="flex gap-4">
                             <FormField
                                 control={form.control}
-                                name="email"
+                                name="firstName"
                                 render={({ field }) => (
-                                    <FormItem>
+                                    <FormItem className="flex-1">
                                         <FormControl>
-                                            <Input placeholder="Email" {...field} />
+                                            <Input
+                                                placeholder="First name"
+                                                {...field}
+                                            />
                                         </FormControl>
                                         <FormMessage />
                                     </FormItem>
                                 )}
                             />
-
-                            <div className="flex gap-4">
-                                <FormField
-                                    control={form.control}
-                                    name="countryCode"
-                                    render={({ field }) => (
-                                        <FormItem>
-                                            <FormControl>
-                                                <select className="w-full p-2 border rounded-md bg-input text-slate-100" {...field}>
-                                                    <option value="US">US</option>
-                                                    <option value="CA">CA</option>
-                                                    <option value="UK">UK</option>
-                                                    {/* Add more countries as needed */}
-                                                </select>
-                                            </FormControl>
-                                            <FormMessage />
-                                        </FormItem>
-                                    )}
-                                />
-                                <FormField
-                                    control={form.control}
-                                    name="phoneNumber"
-                                    render={({ field }) => (
-                                        <FormItem className="flex-1">
-                                            <FormControl>
-                                                <Input placeholder="+1 (555) 000-0000" {...field} />
-                                            </FormControl>
-                                            <FormMessage />
-                                        </FormItem>
-                                    )}
-                                />
-                            </div>
-
                             <FormField
                                 control={form.control}
-                                name="message"
+                                name="lastName"
                                 render={({ field }) => (
-                                    <FormItem>
+                                    <FormItem className="flex-1">
                                         <FormControl>
-                                            <Textarea placeholder="Leave us a message..." {...field} rows={4} />
+                                            <Input
+                                                placeholder="Last name"
+                                                {...field}
+                                            />
                                         </FormControl>
                                         <FormMessage />
                                     </FormItem>
                                 )}
                             />
+                        </div>
 
-                            <div className="flex flex-wrap gap-4">
-                                {["a", "b", "c", "d"].map((option) => (
-                                    <label key={option} className="flex items-center space-x-2">
-                                        <Checkbox className="accent-primary" />
-                                        <span>{option}</span>
-                                    </label>
-                                ))}
-                            </div>
+                        <FormField
+                            control={form.control}
+                            name="email"
+                            render={({ field }) => (
+                                <FormItem>
+                                    <FormControl>
+                                        <Input placeholder="Email" {...field} />
+                                    </FormControl>
+                                    <FormMessage />
+                                </FormItem>
+                            )}
+                        />
 
-                            <Button type="submit" className="w-full">
-                                Send message
-                            </Button>
-                        </form>
-                    </Form>
-                </div>
+                        <div className="flex gap-4">
+                            <FormField
+                                control={form.control}
+                                name="countryCode"
+                                render={({ field }) => (
+                                    <FormItem>
+                                        <FormControl>
+                                            <select
+                                                className="w-full rounded-md border bg-input p-2 text-slate-100"
+                                                {...field}>
+                                                <option value="US">US</option>
+                                                <option value="CA">CA</option>
+                                                <option value="UK">UK</option>
+                                                {/* Add more countries as needed */}
+                                            </select>
+                                        </FormControl>
+                                        <FormMessage />
+                                    </FormItem>
+                                )}
+                            />
+                            <FormField
+                                control={form.control}
+                                name="phoneNumber"
+                                render={({ field }) => (
+                                    <FormItem className="flex-1">
+                                        <FormControl>
+                                            <Input
+                                                placeholder="+1 (555) 000-0000"
+                                                {...field}
+                                            />
+                                        </FormControl>
+                                        <FormMessage />
+                                    </FormItem>
+                                )}
+                            />
+                        </div>
 
-{/* //TODO: Color these buttons. Red for email, green for text/call, purple discord, blue for twitter */}
-                <div className="flex items-center justify-center gap-2">
-                    <Button className="flex-1"
-                        variant="default" 
-                        size="lg">
-                        Email
-                    </Button>
-                    <Button className="flex-1"
-                        variant="default" 
-                        size="lg">
-                        Text/Call
-                    </Button>
-                    <Button className="flex-1"
-                        variant="default" 
-                        size="lg">
-                        Discord
-                    </Button>
-                    <Button className="flex-1"
-                        variant="default" 
-                        size="lg">
-                        Twitter
-                    </Button>
-                </div>
+                        <FormField
+                            control={form.control}
+                            name="message"
+                            render={({ field }) => (
+                                <FormItem>
+                                    <FormControl>
+                                        <Textarea
+                                            placeholder="Leave us a message..."
+                                            {...field}
+                                            rows={4}
+                                        />
+                                    </FormControl>
+                                    <FormMessage />
+                                </FormItem>
+                            )}
+                        />
+
+                        <div className="flex flex-wrap gap-4">
+                            {["a", "b", "c", "d"].map((option) => (
+                                <label
+                                    key={option}
+                                    className="flex items-center space-x-2">
+                                    <Checkbox className="accent-primary" />
+                                    <span>{option}</span>
+                                </label>
+                            ))}
+                        </div>
+
+                        <Button type="submit" className="w-full">
+                            Send message
+                        </Button>
+                    </form>
+                </Form>
+            </div>
+
+            {/* //TODO: Color these buttons. Red for email, green for text/call, purple discord, blue for twitter */}
+            <div className="flex items-center justify-center gap-2">
+                <Button className="flex-1" variant="default" size="lg">
+                    Email
+                </Button>
+                <Button className="flex-1" variant="default" size="lg">
+                    Text/Call
+                </Button>
+                <Button className="flex-1" variant="default" size="lg">
+                    Discord
+                </Button>
+                <Button className="flex-1" variant="default" size="lg">
+                    Twitter
+                </Button>
+            </div>
         </div>
     );
 }
