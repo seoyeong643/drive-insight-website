@@ -17,6 +17,13 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { ContactFormData, contactSchema } from "@/schema/contactSchema";
 import { sendDiscordMessage } from "@/utils/discord";
+import {
+    FaDiscord,
+    FaEnvelope,
+    FaPaperPlane,
+    FaPhone,
+    FaTwitter,
+} from "react-icons/fa6";
 
 export default function Contact() {
     const form = useForm<ContactFormData>({
@@ -40,7 +47,7 @@ export default function Contact() {
     };
 
     return (
-        <div className="container flex flex-col gap-5">
+        <div className="container flex flex-col gap-5 lg:px-60">
             <div className="flex flex-col items-center gap-2">
                 <h1>Contact Us</h1>
                 <p>
@@ -176,24 +183,40 @@ export default function Contact() {
                         </div>
 
                         <Button type="submit" className="w-full">
+                            <FaPaperPlane />
                             Send message
                         </Button>
                     </form>
                 </Form>
             </div>
 
+            <p className="text-center">or</p>
+
             {/* //TODO: Color these buttons. Red for email, green for text/call, purple discord, blue for twitter */}
-            <div className="flex items-center justify-center gap-2">
-                <Button className="flex-1" variant="default" size="lg">
+            <div className="flex flex-col items-center justify-center gap-2 md:flex-row">
+                <Button className="w-full bg-red-500 text-white" variant="link">
+                    <FaEnvelope />
                     Email
                 </Button>
-                <Button className="flex-1" variant="default" size="lg">
+                <Button
+                    className="w-full bg-green-500 text-white"
+                    variant="link"
+                    size="lg">
+                    <FaPhone />
                     Text/Call
                 </Button>
-                <Button className="flex-1" variant="default" size="lg">
+                <Button
+                    className="w-full bg-indigo-500 text-white"
+                    variant="link"
+                    size="lg">
+                    <FaDiscord />
                     Discord
                 </Button>
-                <Button className="flex-1" variant="default" size="lg">
+                <Button
+                    className="w-full bg-blue-500 text-white"
+                    variant="link"
+                    size="lg">
+                    <FaTwitter />
                     Twitter
                 </Button>
             </div>
