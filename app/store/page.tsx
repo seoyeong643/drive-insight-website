@@ -1,17 +1,10 @@
-"use client";
-
-import CheckoutForm from "@/components/CheckoutForm";
-import { Button } from "@/components/ui/button";
+import { CheckoutCounter } from "@/components/CheckoutCounter";
 import Image from "next/image";
-import { useState } from "react";
-import { FaCartShopping } from "react-icons/fa6";
 
 export default function Store() {
-    const [openForm, setOpenForm] = useState<boolean>(false);
-
     return (
         <div className="container mx-auto">
-            <div className="flex flex-col items-center justify-center md:flex-row">
+            <div className="flex flex-col items-center justify-center gap-10 md:flex-row">
                 <div className="flex flex-col items-center justify-center">
                     <Image
                         src="/v1temp.jpg"
@@ -33,17 +26,10 @@ export default function Store() {
                             nostrud exercitation ullamco laboris nisi ut aliquip
                             ex ea commodo consequat.
                         </p>
-                        <Button
-                            className="w-fit gap-3 rounded-full px-12 py-8 text-xl"
-                            onClick={() => setOpenForm((prev) => !prev)}>
-                            <FaCartShopping />
-                            Buy Now
-                        </Button>
+                        <CheckoutCounter />
                     </div>
                 </div>
             </div>
-            {/* Insert Form here */}
-            {openForm && <CheckoutForm />}
         </div>
     );
 }
