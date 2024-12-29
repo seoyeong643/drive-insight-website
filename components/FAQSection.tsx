@@ -28,9 +28,9 @@ export const FAQSection = () => {
                         Where do I find the OBD port?
                     </AccordionTrigger>
                     <AccordionContent>
-                        The OBD port is usually located on the driver's side of
-                        the car. Please refer to your car manual for more
-                        information.
+                        The OBD port is usually located on the driver&apos;s
+                        side of the car. Please refer to your car manual for
+                        more information.
                     </AccordionContent>
                 </AccordionItem>
                 <AccordionItem value="item-3">
