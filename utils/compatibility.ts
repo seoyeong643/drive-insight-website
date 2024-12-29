@@ -4,8 +4,7 @@ import {
     MenuItem,
     VehicleRecord,
 } from "@/constants/Types";
-
-
+import { fetchData } from "./fetch";
 
 /**
  * Get all years from 2008 to current year
@@ -14,7 +13,9 @@ import {
 export const getYears = (): string[] => {
     const startYear = 2008;
     const currentYear = new Date().getFullYear();
-    return Array.from({ length: currentYear - startYear + 1 }, (_, index) => (currentYear - index).toString());
+    return Array.from({ length: currentYear - startYear + 1 }, (_, index) =>
+        (currentYear - index).toString(),
+    );
 };
 
 /**

@@ -3,15 +3,26 @@
 import {
     Form,
     FormControl,
+    FormDescription,
     FormField,
     FormItem,
     FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
+import { STATES } from "@/constants/states";
+import {
+    FormContactData,
+    formContactSchema,
+    FormDeliveryData,
+    formDeliverySchema,
+    FormPaymentData,
+    formPaymentSchema,
+    FormShippingData,
+    formShippingSchema,
+} from "@/schema/formSchema";
 import { zodResolver } from "@hookform/resolvers/zod";
 import Image from "next/image";
 import { useForm } from "react-hook-form";
-import { z } from "zod";
 import { Badge } from "./ui/badge";
 import {
     Select,
@@ -21,43 +32,15 @@ import {
     SelectValue,
 } from "./ui/select";
 
-const formContactSchema = z.object({
-    email: z.string().email({ message: "Email is Required" }),
-});
-
-const formDeliverySchema = z.object({
-    country: z.enum(["United States"]),
-    firstName: z.string().min(2, { message: "First Name is Required" }),
-    lastName: z.string().min(2, { message: "Last Name is Required" }),
-    address: z.string().min(2, { message: "Enter Street Address" }),
-    aptNo: z.optional(
-        z.string().min(0, { message: "Enter Apartment Number (if any)" }),
-    ),
-    city: z.string().min(2, { message: "Enter City" }),
-    state: z.enum(["Arizona", "California", "Florida", "Texas"]),
-    zip: z.string().min(2, { message: "Enter Valid Zip Code" }),
-    phone: z.string(),
-});
-
-const formShippingSchema = z.object({
-    shippingOption: z.enum(["Standard Shipping", "Express Shipping"]),
-});
-
-const formPaymentSchema = z.object({
-    cardNumber: z.string().min(2),
-    cardExpiry: z.string().min(2),
-    cardCvv: z.string().min(2),
-    cardHolderName: z.string().min(2),
-});
-
 export const FormContactSection = () => {
-    const form = useForm<z.infer<typeof formContactSchema>>({
+    const form = useForm<FormContactData>({
         resolver: zodResolver(formContactSchema),
+        mode: "onBlur",
     });
 
     return (
         <Form {...form}>
-            <form className="flex flex-col gap-5">
+            <form className="flex flex-col gap-3">
                 <h3>Contact</h3>
                 <FormField
                     control={form.control}
@@ -67,6 +50,7 @@ export const FormContactSection = () => {
                             <FormControl>
                                 <Input placeholder="Email Address" {...field} />
                             </FormControl>
+                            <FormDescription />
                             <FormMessage />
                         </FormItem>
                     )}
@@ -77,12 +61,13 @@ export const FormContactSection = () => {
 };
 
 export const FormDeliverySection = () => {
-    const form = useForm<z.infer<typeof formDeliverySchema>>({
+    const form = useForm<FormDeliveryData>({
         resolver: zodResolver(formDeliverySchema),
+        mode: "onBlur",
     });
     return (
         <Form {...form}>
-            <form className="flex flex-col gap-5">
+            <form className="flex flex-col gap-3">
                 <h3>Delivery</h3>
                 <FormField
                     control={form.control}
@@ -90,10 +75,11 @@ export const FormDeliverySection = () => {
                     render={({ field }) => (
                         <FormItem>
                             <Select
-                                value={field.value}
-                                onValueChange={field.onChange}>
+                                defaultValue={"United States"}
+                                onValueChange={field.onChange}
+                                disabled>
                                 <FormControl>
-                                    <SelectTrigger>
+                                    <SelectTrigger value={field.value}>
                                         <SelectValue
                                             className="text-muted-foreground"
                                             placeholder="Select Country"
@@ -116,7 +102,7 @@ export const FormDeliverySection = () => {
                         control={form.control}
                         name="firstName"
                         render={({ field }) => (
-                            <FormItem className="flex-1">
+                            <FormItem>
                                 <FormControl>
                                     <Input
                                         placeholder="First Name"
@@ -131,7 +117,7 @@ export const FormDeliverySection = () => {
                         control={form.control}
                         name="lastName"
                         render={({ field }) => (
-                            <FormItem className="flex-1">
+                            <FormItem>
                                 <FormControl>
                                     <Input placeholder="Last Name" {...field} />
                                 </FormControl>
@@ -169,7 +155,7 @@ export const FormDeliverySection = () => {
                         control={form.control}
                         name="city"
                         render={({ field }) => (
-                            <FormItem className="flex-1">
+                            <FormItem>
                                 <FormControl>
                                     <Input placeholder="City" {...field} />
                                 </FormControl>
@@ -181,28 +167,28 @@ export const FormDeliverySection = () => {
                         control={form.control}
                         name="state"
                         render={({ field }) => (
-                            <FormItem className="flex-1">
+                            <FormItem>
                                 <Select
                                     value={field.value}
                                     onValueChange={field.onChange}>
                                     <FormControl>
-                                        <SelectTrigger>
+                                        <SelectTrigger
+                                            className={
+                                                field.value
+                                                    ? "text-foreground"
+                                                    : "text-muted-foreground"
+                                            }>
                                             <SelectValue placeholder="State" />
                                         </SelectTrigger>
                                     </FormControl>
                                     <SelectContent>
-                                        <SelectItem value="California">
-                                            California
-                                        </SelectItem>
-                                        <SelectItem value="Arizona">
-                                            Arizona
-                                        </SelectItem>
-                                        <SelectItem value="Florida">
-                                            Florida
-                                        </SelectItem>
-                                        <SelectItem value="Texas">
-                                            Texas
-                                        </SelectItem>
+                                        {STATES.map((state) => (
+                                            <SelectItem
+                                                key={state}
+                                                value={state}>
+                                                {state}
+                                            </SelectItem>
+                                        ))}
                                     </SelectContent>
                                 </Select>
                                 <FormMessage />
@@ -213,7 +199,7 @@ export const FormDeliverySection = () => {
                         control={form.control}
                         name="zip"
                         render={({ field }) => (
-                            <FormItem className="flex-1">
+                            <FormItem>
                                 <FormControl>
                                     <Input placeholder="Zip" {...field} />
                                 </FormControl>
@@ -227,7 +213,7 @@ export const FormDeliverySection = () => {
                         control={form.control}
                         name="phone"
                         render={({ field }) => (
-                            <FormItem className="flex-1">
+                            <FormItem>
                                 <FormControl>
                                     <Input
                                         placeholder="Phone Number"
@@ -245,12 +231,12 @@ export const FormDeliverySection = () => {
 };
 
 export const FormShippingSection = () => {
-    const form = useForm<z.infer<typeof formShippingSchema>>({
+    const form = useForm<FormShippingData>({
         resolver: zodResolver(formShippingSchema),
     });
     return (
         <Form {...form}>
-            <form className="flex flex-col gap-5">
+            <form className="flex flex-col gap-3">
                 <h3>Shipping</h3>
                 <FormField
                     control={form.control}
@@ -262,7 +248,7 @@ export const FormShippingSection = () => {
                                     value={field.value}
                                     onValueChange={field.onChange}>
                                     <FormControl>
-                                        <SelectTrigger>
+                                        <SelectTrigger value={field.value}>
                                             <SelectValue placeholder="Select Shipping Option" />
                                         </SelectTrigger>
                                     </FormControl>
@@ -286,12 +272,12 @@ export const FormShippingSection = () => {
 };
 
 export const FormPaymentSection = () => {
-    const form = useForm<z.infer<typeof formPaymentSchema>>({
+    const form = useForm<FormPaymentData>({
         resolver: zodResolver(formPaymentSchema),
     });
     return (
         <Form {...form}>
-            <form className="flex flex-col gap-5">
+            <form className="flex flex-col gap-3">
                 <h3>Payment Details</h3>
                 <div>
                     <FormField
@@ -315,7 +301,7 @@ export const FormPaymentSection = () => {
                         control={form.control}
                         name="cardExpiry"
                         render={({ field }) => (
-                            <FormItem className="flex-1">
+                            <FormItem>
                                 <FormControl>
                                     <Input placeholder="MM/YY" {...field} />
                                 </FormControl>
@@ -327,7 +313,7 @@ export const FormPaymentSection = () => {
                         control={form.control}
                         name="cardCvv"
                         render={({ field }) => (
-                            <FormItem className="flex-1">
+                            <FormItem>
                                 <FormControl>
                                     <Input placeholder="CVV" {...field} />
                                 </FormControl>
@@ -364,11 +350,11 @@ interface orderSummaryProps {
 
 export const OrderSummarySection = ({ quantity }: orderSummaryProps) => {
     return (
-        <div className="flex flex-col gap-5 py-5">
+        <div className="flex flex-col gap-3">
             <h3>Order Summary</h3>
-            <div className="flex flex-col gap-3 py-5">
+            <div className="flex flex-col gap-1">
                 <div className="flex flex-row justify-between">
-                    <div className="flex flex-row gap-2">
+                    <div className="flex flex-row items-center gap-3">
                         <div className="relative">
                             <Image
                                 src="/v1temp.jpg"
@@ -377,13 +363,11 @@ export const OrderSummarySection = ({ quantity }: orderSummaryProps) => {
                                 height={50}
                                 className="rounded-lg"
                             />
-                            <Badge className="absolute right-0 top-0 -translate-y-1/2 translate-x-1/2 rounded-full bg-primary">
+                            <Badge className="absolute right-0 top-0 -translate-y-1/2 translate-x-1/2 bg-primary">
                                 {quantity}
                             </Badge>
                         </div>
-                        <p className="self-center font-semibold">
-                            Velocity 1.0
-                        </p>
+                        <h5>Velocity 1.0</h5>
                     </div>
                     <p className="self-center">$49.99</p>
                 </div>
@@ -393,15 +377,15 @@ export const OrderSummarySection = ({ quantity }: orderSummaryProps) => {
                 </div>
                 <div className="flex flex-row justify-between">
                     <p>Shipping</p>
-                    <p>$9.99</p>
+                    <p>--</p>
                 </div>
                 <div className="flex flex-row justify-between">
                     <p>Tax</p>
-                    <p>$4.79</p>
+                    <p>--</p>
                 </div>
                 <div className="flex flex-row justify-between">
-                    <h4 className="text-white">Total</h4>
-                    <p className="text-lg font-bold text-white">$64.78</p>
+                    <h5 className="text-white">Total</h5>
+                    <h5 className="text-white">--</h5>
                 </div>
             </div>
         </div>

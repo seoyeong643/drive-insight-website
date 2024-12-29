@@ -1,39 +1,36 @@
-"use client"
+"use client";
 
-import { Button } from "@/components/ui/button";
-import {
-	DropdownMenu,
-	DropdownMenuContent,
-	DropdownMenuLabel,
-	DropdownMenuRadioGroup,
-	DropdownMenuRadioItem,
-	DropdownMenuSeparator,
-	DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
 import { useState } from "react";
+import {
+    Select,
+    SelectContent,
+    SelectGroup,
+    SelectItem,
+    SelectLabel,
+    SelectTrigger,
+    SelectValue,
+} from "./ui/select";
 
-export function Picker({title, items}: {title: string, items: string[]}) {
-	const [selectedItem, setSelectedItem] = useState<string | undefined>(undefined);
+export function Picker({ title, items }: { title: string; items: string[] }) {
+    const [selectedItem, setSelectedItem] = useState<string>("");
 
-	return (
-		<DropdownMenu>
-			<DropdownMenuTrigger asChild>
-				<Button variant="outline" className="w-full">{selectedItem || `${title}`}</Button>
-			</DropdownMenuTrigger>
-
-			<DropdownMenuContent className="w-56">
-				<DropdownMenuLabel>{title}</DropdownMenuLabel>
-				<DropdownMenuSeparator />
-				<DropdownMenuRadioGroup value={selectedItem}>
-				{items.map((item) => (
-					<DropdownMenuRadioItem key={item} value={item}>
-					{item}
-					</DropdownMenuRadioItem>
-				))}
-				</DropdownMenuRadioGroup>
-			</DropdownMenuContent>
-		</DropdownMenu>
-	);
+    return (
+        <Select>
+            <SelectTrigger>
+                <SelectValue placeholder={title} />
+            </SelectTrigger>
+            <SelectContent>
+                <SelectGroup>
+                    <SelectLabel>Fruits</SelectLabel>
+                    <SelectItem value="apple">Apple</SelectItem>
+                    <SelectItem value="banana">Banana</SelectItem>
+                    <SelectItem value="blueberry">Blueberry</SelectItem>
+                    <SelectItem value="grapes">Grapes</SelectItem>
+                    <SelectItem value="pineapple">Pineapple</SelectItem>
+                </SelectGroup>
+            </SelectContent>
+        </Select>
+    );
 }
 
-export default Picker
+export default Picker;

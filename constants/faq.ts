@@ -1,8 +1,8 @@
 export enum Category {
-    ALL = "All",
-    TYPE2 = "Type 2",
-    TYPE3 = "Type 3",
-    TYPE4 = "Type 4",
+    ALL = "all",
+    TYPE2 = "device",
+    TYPE3 = "app",
+    TYPE4 = "shipping",
 }
 
 export const faq: { title: string; description: string; category: Category }[] =

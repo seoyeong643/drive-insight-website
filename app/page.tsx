@@ -1,20 +1,18 @@
 import { BenefitsSection } from "@/components/BenefitsSection";
-import { CallToActionSection } from "@/components/CallToActionSection";
 import { CompatibilitySection } from "@/components/CompatibilitySection";
 import { FAQSection } from "@/components/FAQSection";
-import { FeaturesSection } from "@/components/FeaturesSection";
 import { HeroSection } from "@/components/HeroSection";
 
 export default function Home() {
     return (
-        <div className="container">
+        <div className="container flex flex-col gap-10">
             {/* PAGE SECTIONS */}
             <HeroSection />
             <BenefitsSection />
-            <FeaturesSection />
+            {/* <FeaturesSection /> */}
             <CompatibilitySection />
             <FAQSection />
-            <CallToActionSection />
+            {/* <CallToActionSection /> */}
         </div>
     );
 }
