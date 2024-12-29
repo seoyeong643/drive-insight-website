@@ -19,7 +19,12 @@ export const Navbar = () => {
             <div className="flex flex-row items-center justify-between">
                 {/* LOGO */}
                 <Link href={"/"}>
-                    <Image src={logo} alt="Drive Insight Logo" width={140} />
+                    <Image
+                        src={logo}
+                        alt="Drive Insight Logo"
+                        width={140}
+                        unoptimized
+                    />
                 </Link>
 
                 {/* HAMBURGER MENU */}
