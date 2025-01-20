@@ -6,13 +6,7 @@ export default function Store() {
         <div className="container mx-auto flex flex-col gap-10 md:flex-row">
             <div className="flex-1">
                 {/* TODO: Implement a carousel */}
-                <Image
-                    src="/v1temp.jpg"
-                    alt={""}
-                    width={1200}
-                    height={700}
-                    unoptimized
-                />
+                <Image src="/v1temp.jpg" alt={""} width={1200} height={700} />
             </div>
 
             <div className="flex flex-1 flex-col justify-center gap-7">

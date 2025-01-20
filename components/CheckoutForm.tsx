@@ -362,7 +362,6 @@ export const OrderSummarySection = ({ quantity }: orderSummaryProps) => {
                                 width={50}
                                 height={50}
                                 className="rounded-lg"
-                                unoptimized
                             />
                             <Badge className="absolute right-0 top-0 -translate-y-1/2 translate-x-1/2 bg-primary">
                                 {quantity}

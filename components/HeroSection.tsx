@@ -13,7 +13,6 @@ export const HeroSection = () => {
                 width={500}
                 height={500}
                 className="flex-1"
-                unoptimized
             />
 
             <div className="flex flex-1 flex-col gap-6">

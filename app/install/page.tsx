@@ -47,7 +47,6 @@ export default function Install() {
                                 src={google_play_badge}
                                 alt="Get it on Google Play"
                                 className="flex-1"
-                                unoptimized
                             />
                         </Link>
                         <Link
@@ -58,7 +57,6 @@ export default function Install() {
                                 src={app_store_badge}
                                 alt="Download on the App Store"
                                 className="flex-1"
-                                unoptimized
                             />
                         </Link>
                     </CardContent>
@@ -83,7 +81,6 @@ export default function Install() {
                             src={obd}
                             alt="Get it on Google Play"
                             className="mx-auto h-auto w-1/2"
-                            unoptimized
                         />
                     </CardContent>
                 </Card>
