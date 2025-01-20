@@ -15,7 +15,7 @@ import google_play_badge from "../public/Google_Play.svg";
 export const Footer = () => {
     return (
         <div className="w-full bg-background">
-            <div className="container mx-auto flex flex-col gap-6 p-6 md:flex-row">
+            <div className="container flex flex-col gap-6 py-6 md:flex-row">
                 {/* COMPANY INFO */}
                 <div className="flex flex-1 flex-col gap-4">
                     {/* LOGO */}

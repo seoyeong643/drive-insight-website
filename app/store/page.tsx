@@ -1,49 +1,24 @@
-"use client";
-import { Button } from "@/components/ui/button";
-import { Minus, Plus, ShoppingCart } from "lucide-react";
-import { useState } from "react";
-
-const Counter = () => {
-    const [count, setCount] = useState<number>(1);
-
-    const handleCounter = (event: "increment" | "decrement") => {
-        setCount((prevCount) => {
-            if (event === "increment") {
-                return prevCount + 1;
-            } else if (event === "decrement" && prevCount > 1) {
-                return prevCount - 1;
-            }
-            return prevCount;
-        });
-    };
-
-    return (
-        <div className="flex flex-row gap-5 p-5">
-            <button onClick={() => handleCounter("decrement")}>
-                <Minus />
-            </button>
-            <p id="counter">{count}</p>
-            <button onClick={() => handleCounter("increment")}>
-                <Plus />
-            </button>
-        </div>
-    );
-};
+import { CheckoutCounter } from "@/components/CheckoutCounter";
+import Image from "next/image";
 
 export default function Store() {
     return (
-        <div>
-            <div className="flex flex-row items-center justify-center">
-                <div className="flex flex-1 flex-col items-center justify-center">
-                    Insert OBD Graphic
+        <div className="container mx-auto">
+            <div className="flex flex-col items-center justify-center gap-10 md:flex-row">
+                <div className="flex flex-col items-center justify-center">
+                    <Image
+                        src="/v1temp.jpg"
+                        alt={""}
+                        width={1200}
+                        height={700}
+                    />
                 </div>
-                <div className="flex flex-1 flex-col items-center justify-center">
-                    {/* <h1 className="text-4xl font-bold">Store</h1>
-                    <p>Device information, shipping info, price info</p>
-                    <p>Buy now</p>
-                    <p>Expandable form</p> */}
-                    <div className="gap-10 p-20">
-                        <h1 className="text-4xl font-bold">Buy Velocity 1.0</h1>
+                <div className="flex flex-col items-center justify-center gap-5">
+                    <div className="flex flex-col gap-7 px-20">
+                        <div className="flex flex-col gap-2">
+                            <h1>Velocity 1.0</h1>
+                            <h2 className="pb-0">$49.99</h2>
+                        </div>
                         <p>
                             Lorem ipsum dolor sit amet, consectetur adipiscing
                             elit, sed do eiusmod tempor incididunt ut labore et
@@ -51,17 +26,7 @@ export default function Store() {
                             nostrud exercitation ullamco laboris nisi ut aliquip
                             ex ea commodo consequat.
                         </p>
-                        <h3 className="font-semibold">$49.99</h3>
-                    </div>
-                    <div className="flex flex-row items-center gap-20">
-                        {/* Quantity counter */}
-                        <Counter />
-                        <Button
-                            className="w-full md:w-fit md:gap-4 md:pl-4"
-                            size="lg">
-                            <ShoppingCart />
-                            Checkout
-                        </Button>
+                        <CheckoutCounter />
                     </div>
                 </div>
             </div>
