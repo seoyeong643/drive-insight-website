@@ -17,9 +17,9 @@ export default function About() {
             <p>
                 Our device is designed to be user-friendly, with a simple
                 interface that allows drivers to monitor their driving data and
-                receive personalized recommendations. We&apos;re committed to
-                making our device accessible to everyone, and we&apos;re
-                constantly working on improving its features and functionality.
+                receive personalized recommendations. We're committed to making
+                our device accessible to everyone, and we're constantly working
+                on improving its features and functionality.
             </p>
         </div>
     );

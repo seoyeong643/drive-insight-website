@@ -2,13 +2,13 @@ const BenefitCard = ({
     title,
     description,
     icon,
-    // imgPath,
+    imgPath,
     darkMode = true,
 }: {
     title: string;
     description: string;
     icon: React.ReactNode;
-    // imgPath: string;
+    imgPath: string;
     darkMode?: boolean;
 }) => {
     return (
