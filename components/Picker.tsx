@@ -1,36 +1,39 @@
-"use client";
+"use client"
 
-import { useState } from "react";
+import { Button } from "@/components/ui/button";
 import {
-    Select,
-    SelectContent,
-    SelectGroup,
-    SelectItem,
-    SelectLabel,
-    SelectTrigger,
-    SelectValue,
-} from "./ui/select";
+	DropdownMenu,
+	DropdownMenuContent,
+	DropdownMenuLabel,
+	DropdownMenuRadioGroup,
+	DropdownMenuRadioItem,
+	DropdownMenuSeparator,
+	DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
+import { useState } from "react";
 
-export function Picker({ title, items }: { title: string; items: string[] }) {
-    const [selectedItem, setSelectedItem] = useState<string>("");
+export function Picker({title, items}: {title: string, items: string[]}) {
+	const [selectedItem, setSelectedItem] = useState<string | undefined>(undefined);
 
-    return (
-        <Select>
-            <SelectTrigger>
-                <SelectValue placeholder={title} />
-            </SelectTrigger>
-            <SelectContent>
-                <SelectGroup>
-                    <SelectLabel>Fruits</SelectLabel>
-                    <SelectItem value="apple">Apple</SelectItem>
-                    <SelectItem value="banana">Banana</SelectItem>
-                    <SelectItem value="blueberry">Blueberry</SelectItem>
-                    <SelectItem value="grapes">Grapes</SelectItem>
-                    <SelectItem value="pineapple">Pineapple</SelectItem>
-                </SelectGroup>
-            </SelectContent>
-        </Select>
-    );
+	return (
+		<DropdownMenu>
+			<DropdownMenuTrigger asChild>
+				<Button variant="outline" className="w-full">{selectedItem || `${title}`}</Button>
+			</DropdownMenuTrigger>
+
+			<DropdownMenuContent className="w-56">
+				<DropdownMenuLabel>{title}</DropdownMenuLabel>
+				<DropdownMenuSeparator />
+				<DropdownMenuRadioGroup value={selectedItem}>
+				{items.map((item) => (
+					<DropdownMenuRadioItem key={item} value={item}>
+					{item}
+					</DropdownMenuRadioItem>
+				))}
+				</DropdownMenuRadioGroup>
+			</DropdownMenuContent>
+		</DropdownMenu>
+	);
 }
 
-export default Picker;
+export default Picker

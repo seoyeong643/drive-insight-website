@@ -65,17 +65,18 @@ export const Footer = () => {
                     <div className="flex flex-col gap-2">
                         <p className="mb-1 font-bold text-slate-300">Company</p>
                         <Link href="/about">About</Link>
-                        <Link href="/store">Store</Link>
+                        <Link href="/about">Customers</Link>
+                        <Link href="/about">Store</Link>
                     </div>
                     <div className="flex flex-col gap-2">
                         <p className="mb-1 font-bold text-slate-300">
                             Resources
                         </p>
-                        <Link href="/faq" className="hover:underline">
+                        <Link href="/about" className="hover:underline">
                             FAQ
                         </Link>
-                        <Link href="/guides">Guides</Link>
-                        <Link href="/support">Support</Link>
+                        <Link href="/about">Guides</Link>
+                        <Link href="/about">Support</Link>
                     </div>
                 </div>
             </div>

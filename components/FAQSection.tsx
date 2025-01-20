@@ -4,51 +4,52 @@ import {
     AccordionItem,
     AccordionTrigger,
 } from "@/components/ui/accordion";
+import Link from "next/link";
 
 export const FAQSection = () => {
     return (
-        <div className="flex flex-col gap-5">
-            <div>
-                <h2 className="text-center">Frequently Asked Questions</h2>
-                <p className="text-center">Learn more about our product.</p>
-            </div>
+        <div style={{ padding: "20px" }}>
+            <h1 style={{ textAlign: "center", fontSize: 35 }}>FAQs</h1>
+            <br />
+
             <Accordion
                 type="single"
                 collapsible
                 className="flex w-full flex-col gap-3">
                 <AccordionItem value="item-1">
-                    <AccordionTrigger>Is my car compatible?</AccordionTrigger>
+                    <AccordionTrigger>Is it accessible?</AccordionTrigger>
                     <AccordionContent>
-                        Please check the compatibility section for more
-                        information.
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                        sed do eiusmod tempor incididunt ut labore et dolore
+                        magna aliqua. Ut enim ad minim veniam, quis nostrud
+                        exercitation ullamco laboris nisi ut aliquip .
                     </AccordionContent>
                 </AccordionItem>
                 <AccordionItem value="item-2">
-                    <AccordionTrigger>
-                        Where do I find the OBD port?
-                    </AccordionTrigger>
+                    <AccordionTrigger>Is it accessible?</AccordionTrigger>
                     <AccordionContent>
-                        The OBD port is usually located on the driver's side of
-                        the car. Please refer to your car manual for more
-                        information.
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                        sed do eiusmod tempor incididunt ut labore et dolore
+                        magna aliqua. Ut enim ad minim veniam, quis nostrud
+                        exercitation ullamco laboris nisi ut aliquip .
                     </AccordionContent>
                 </AccordionItem>
                 <AccordionItem value="item-3">
-                    <AccordionTrigger>
-                        How do I connect my car?
-                    </AccordionTrigger>
+                    <AccordionTrigger>Is it accessible?</AccordionTrigger>
                     <AccordionContent>
-                        Plug the device into the OBD port and turn on the car.
-                        Then setup the device using the instructions on the app.
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                        sed do eiusmod tempor incididunt ut labore et dolore
+                        magna aliqua. Ut enim ad minim veniam, quis nostrud
+                        exercitation ullamco laboris nisi ut aliquip .
                     </AccordionContent>
                 </AccordionItem>
             </Accordion>
 
-            {/* <Link href="/faq">
+            <Link href="/faq">
                 <h6 style={{ textAlign: "right", color: "blue" }}>
                     Click here for more information
                 </h6>
-            </Link> */}
+            </Link>
         </div>
     );
 };
