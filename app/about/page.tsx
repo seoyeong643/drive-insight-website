@@ -1,4 +1,6 @@
 import { Card, CardContent } from '@/components/ui/card';
+import { Button } from '@/components/ui/button';
+import Link from 'next/link';
 
 const About = () => {
   const teamMembers = [
@@ -39,7 +41,7 @@ const About = () => {
       {/* Our Story */}
       <section className="mb-16">
         <h2>Our Story</h2>
-        <div className="grid md:grid-cols-2 gap-8">
+        <div className="gap-8 flex grid md:grid-cols-2">
           <div>
             <p className="mb-4">
               Drive Insight was born in 2024 from the shared passion of two car enthusiasts, Ninad and Yug. As graduates of Arizona State University, they combined their technical expertise with their love for automobiles to create something unique - an application that gives drivers deep insights into their driving behavior while maintaining absolute data privacy.
@@ -48,40 +50,41 @@ const About = () => {
               The journey began with Ninad's prototype in Python two years ago, driven by a curiosity to understand fuel consumption during peak gas prices. This early experiment evolved into something much more ambitious.
             </p>
           </div>
-          <Card>
-            <CardContent className="p-6">
-              <h3>Our Mission</h3>
-              <p className="italic">
-                "Educate, don't just enforce" - This principle guides everything we do at Drive Insight.
-              </p>
-            </CardContent>
-          </Card>
+          <div className='mt-5'>
+            <Card>
+              <CardContent className="p-6">
+                <h3>"Educate, don't just enforce"</h3>
+                <p className="italic">
+                   - This principle guides everything we do at Drive Insight.
+                </p>
+              </CardContent>
+            </Card>
+          </div>
         </div>
       </section>
 
       {/* The Problem We're Solving */}
       <section className="mb-16">
-        <h2>The Problem We're Solving</h2>
-        <div className="bg-muted rounded-lg p-8">
-          <div className="grid md:grid-cols-2 gap-8">
-            <div>
-              <h3 className="mb-4">Industry Reality</h3>
-              <ul className="space-y-3">
+        <h2>The Problem We're Out to Solve</h2>
+        <Card className='md:justify-center'>
+            <CardContent className="p-6">
+            
+            <h3 className="mb-4">Industry Reality</h3>
+              <ul className="space-y-3 ">
                 <li>Big corporations selling user driving data to third parties</li>
                 <li>Insurance companies using undisclosed scoring systems</li>
                 <li>Limited scope of existing solutions (GPS speed only)</li>
               </ul>
-            </div>
-            <div>
+        
               <h3 className="mb-4">Our Solution</h3>
               <ul className="space-y-3">
                 <li>Complete data privacy - no cloud storage, you own your data</li>
                 <li>Customizable scoring system aligned with your goals</li>
                 <li>Comprehensive metrics including RPM and fuel usage</li>
               </ul>
-            </div>
-          </div>
-        </div>
+           
+            </CardContent>
+        </Card>
       </section>
 
       {/* Team Section */}
@@ -111,14 +114,16 @@ const About = () => {
       {/* Future Vision */}
       <section className="mb-16">
         <h2>The Road Ahead</h2>
-        <div className="bg-muted rounded-lg p-8">
-          <p className="mb-4">
-            Drive Insight is at the forefront of incorporating AI technology to generate even deeper driving insights. We're committed to continuous innovation while maintaining our core values of privacy and user empowerment.
-          </p>
-          <p>
-            Our vision extends beyond just data collection - we're building a platform that helps new drivers become safer and experienced drivers become better, all while keeping their data completely in their control.
-          </p>
-        </div>
+        <Card>
+            <CardContent className="p-6">
+            <p className="mb-4">
+                Drive Insight is at the forefront of incorporating AI technology to generate even deeper driving insights. We're committed to continuous innovation while maintaining our core values of privacy and user empowerment.
+            </p>
+            <p>
+                Our vision extends beyond just data collection - we're building a platform that helps new drivers become safer and experienced drivers become better, all while keeping their data completely in their control.
+            </p>
+          </CardContent>
+        </Card>
       </section>
 
       {/* Call to Action */}
@@ -127,9 +132,11 @@ const About = () => {
         <p className="text-xl mb-8">
           Experience the future of driving insights while maintaining complete control over your data.
         </p>
-        <button className="bg-primary text-primary-foreground px-8 py-3 rounded-lg hover:bg-primary/90 transition-colors">
+        <Link href="/install">
+        <Button className="bg-primary text-primary-foreground px-8 py-3 rounded-lg hover:bg-primary/90 transition-colors">
           Get Started
-        </button>
+        </Button>
+        </Link>
       </section>
     </div>
   );
