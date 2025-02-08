@@ -45,20 +45,18 @@ const features = [
 
 export const FeaturesSection = () => {
     return (
-        <div className="bg-[#0F0F0F] px-6 py-12 text-white md:px-12">
+        <div className="px-6 py-12 md:px-12">
             <h1 className="mb-10 text-center text-3xl font-bold">Features</h1>
             <div className="grid auto-rows-[180px] grid-cols-1 gap-6 md:grid-cols-3">
                 {features.map((feature, index) => (
                     <Card
                         key={index}
-                        className={`rounded-xl bg-[#181818] p-6 shadow-lg transition hover:shadow-xl ${feature.size}`}>
+                        className={`rounded-xl p-6 shadow-lg transition hover:shadow-xl ${feature.size}`}>
                         <CardContent>
                             <h2 className="mb-2 text-xl font-semibold">
                                 {feature.title}
                             </h2>
-                            <p className="text-gray-400">
-                                {feature.description}
-                            </p>
+                            <p>{feature.description}</p>
                         </CardContent>
                     </Card>
                 ))}
